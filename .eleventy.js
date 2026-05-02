@@ -4,7 +4,9 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget("./src/css/");
 
     eleventyConfig.addFilter("readableDate", (date) =>
-        new Date(date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })
+        new Date(date)
+            .toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })
+            .toLowerCase()
     );
 
     return {
