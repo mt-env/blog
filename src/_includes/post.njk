@@ -2,4 +2,9 @@
 layout: base.njk
 ---
 
-{{ content | safe }}
+<link rel="stylesheet" href="{{ '/css/post.css' | url }}">
+
+<div class="centered">
+    {% if date %}<p class="post-date">{{ date | readableDate }}</p>{% endif %}
+    {{ content | safe }}
+</div>
