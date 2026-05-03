@@ -5,15 +5,17 @@ layout: base.njk
 <link rel="stylesheet" href="{{ '/css/post.css' | url }}">
 
 <div style="text-align: center;">
-    <a href="{{ '/' | url }}"><- home</a>
+    <b><a href="{{ '/' | url }}"><- home</a></b>
+    <span>--</span>
     {% if date %}<i class="post-date">{{ date | readableDate }}</i>{% endif %}
 </div>
 
 {% if tags %}
 <div style="text-align: center;">
     <span>tags:</span>
-    {% for tag in tags %}
-    <span>{{ tag }}</span>
+    {% for tag in tags | rejectTag("posts") | sort %}
+        {% if not loop.first %}<span>--</span>{% endif %}
+        <span><i>{{ tag }}</i></span>
     {% endfor %}
 </div>
 {% endif %}

@@ -9,6 +9,8 @@ module.exports = function (eleventyConfig) {
             .toLowerCase()
     );
 
+    eleventyConfig.addFilter("rejectTag", (tags, tag) => tags.filter(t => t !== tag));
+
     return {
         dir: {
             input: "src",
