@@ -5,12 +5,23 @@ layout: base.njk
 <link rel="stylesheet" href="{{ '/css/post.css' | url }}">
 
 <div style="text-align: center;">
+    <a href="{{ '/' | url }}"><- home</a>
     {% if date %}<i class="post-date">{{ date | readableDate }}</i>{% endif %}
 </div>
+
+{% if tags %}
+<div style="text-align: center;">
+    <span>tags:</span>
+    {% for tag in tags %}
+    <span>{{ tag }}</span>
+    {% endfor %}
+</div>
+{% endif %}
 
 <div class="centered">
     {{ content | safe }}
 </div>
+
 
 <script src="https://giscus.app/client.js"
         data-repo="mt-env/blog"
