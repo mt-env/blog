@@ -10,10 +10,11 @@ layout: base.njk
     {% if date %}<i class="post-date">{{ date | readableDate }}</i>{% endif %}
 </div>
 
-{% if tags %}
+{% set visibleTags = tags | rejectTag("posts") | sort %}
+{% if visibleTags.length %}
 <div style="text-align: center;">
     <span>tags:</span>
-    {% for tag in tags | rejectTag("posts") | sort %}
+    {% for tag in visibleTags %}
         {% if not loop.first %}<span>--</span>{% endif %}
         <span><i>{{ tag }}</i></span>
     {% endfor %}
