@@ -1,10 +1,11 @@
 ---
-title: Front Page
+title: blog
 layout: base.njk
 ---
 
-first page :3
+a collection of my thoughts
 
 {% for post in collections.posts %}
-- [{{ post.data.title }}]({{ post.url }})
+**[{{ post.data.title }}]({{ post.url }})**
+<br>
 {%- endfor %}
