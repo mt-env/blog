@@ -5,7 +5,9 @@ layout: base.njk
 
 a collection of my thoughts
 
-{% for post in collections.posts %}
+<small>// newest posts first</small>
+
+{% for post in collections.posts reversed %}
 **[{{ post.data.title }}]({{ post.url }})**
 <br>
 {%- endfor %}
